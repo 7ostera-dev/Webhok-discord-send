@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>إرسال رسالة إلى Discord</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Roboto', sans-serif;
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                background-color: #ffffff1a;
+                border-radius: 12px;
+                padding: 20px;
+                width: 90%;
+                max-width: 450px;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+            h2 {
+                font-size: 22px;
+                margin-bottom: 15px;
+                color: #4CAF50;
+            }
+            label {
+                font-size: 14px;
+                font-weight: bold;
+                color: #d1d1d1;
+                display: block;
+                margin-top: 10px;
+            }
+            input[type="text"], textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 6px 0;
+                border: none;
+                border-radius: 6px;
+                background-color: #ffffff30;
+                color: #fff;
+            }
+            textarea {
+                resize: none;
+                height: 80px;
+            }
+            .radio-buttons {
+                display: flex;
+                justify-content: space-around;
+                margin: 15px 0;
+            }
+            .radio-buttons label {
+                font-size: 13px;
+                color: #4CAF50;
+                cursor: pointer;
+            }
+            .embed-options {
+                display: flex;
+                gap: 8px;
+            }
+            button {
+                width: 100%;
+                padding: 12px;
+                margin-top: 15px;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 6px;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            button:hover {
+                background-color: #3a9c40;
+            }
+            .success-message, .error-message {
+                margin-top: 10px;
+                font-size: 14px;
+            }
+            .success-message {
+                color: #4CAF50;
+            }
+            .error-message {
+                color: #ff5c5c;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>إرسال رسالة إلى Discord</h2>
+            <form id="webhookForm">
+                <label for="apiURL">رابط الـ API:</label>
+                <input type="text" id="apiURL" placeholder="ضع رابط الويب هوك هنا" required="">
+        
+                <label for="message">الرسالة:</label>
+                <textarea id="message" placeholder="أدخل رسالتك هنا"></textarea>
+        
+                <div class="radio-buttons">
+                    <label><input type="radio" name="messageType" value="text" checked=""> نص فقط</label>
+                    <label><input type="radio" name="messageType" value="embed"> إيمبد فقط</label>
+                    <label><input type="radio" name="messageType" value="both"> رسالة وإيمبد</label>
+                </div>
+        
+                <div class="embed-options">
+                    <input type="text" id="embedTitle" placeholder="عنوان الإيمبد (اختياري)">
+                    <input type="text" id="embedURL" placeholder="رابط الإيمبد (اختياري)">
+                </div>
+        
+                <label for="embedDescription">وصف الإيمبد (اختياري):</label>
+                <textarea id="embedDescription" placeholder="أدخل الوصف هنا (اختياري)"></textarea>
+        
+                <button type="submit">إرسال</button>
+        
+                <div class="success-message" id="successMessage"></div>
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+        </div>
+        
+        <script src="script.js"></script>
+        
+        
+        </body>
